@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import Geocode from "react-geocode"
 
-const apiUrl = "http://api.openweathermap.org/data/2.5/"
+const apiUrl = "http://api.openweathermap.org/data/2.5/onecall?"
 const api = process.env.REACT_APP_WEATHER_API_KEY
 
 Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
