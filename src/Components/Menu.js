@@ -1,22 +1,47 @@
 import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
+import Geocode from "react-geocode"
+
 const apiUrl = "http://api.openweathermap.org/data/2.5/"
 const api = process.env.REACT_APP_WEATHER_API_KEY
+
+Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
 export default class sideMenu extends Component {
   
 
 
-  state = { activeItem: 'New York, NY' }
+  state = { 
+    activeItem: 'New York',
+    lat: '',
+    lng: '' 
+  }
 
   handleItemClick = (e, { name }) => {
     this.setState({ activeItem: name })
-    console.log(name)
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${name}&APPID=b189bd79d077113ba7f92cc757207908`)
-    .then(r => r.json())
-    .then(data => {
-      console.log(data.weather)
-    })
+    Geocode.fromAddress(name)
+        .then(r => {
+            const {lat, lng} = r.results[0].geometry.location
+             this.setState({
+               lat: lat,
+               lng: lng
+            })
+  },
+  error => {
+    console.error(error)
+  })
+
+    this.fetchWeather()
+  }
+
+   fetchWeather = () => {
+       console.log("working")
+        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,minutely&appid=b189bd79d077113ba7f92cc757207908")
+            .then(r => r.json())
+            .then(data => {
+              console.log(data)
+            })
+  
   }
   
 
