@@ -9,6 +9,7 @@
     "dotenv": "^8.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-geocode": "^0.2.1",
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-saga": "^1.1.3",
