@@ -35,11 +35,12 @@ export default class sideMenu extends Component {
   }
 
    fetchWeather = () => {
-       console.log("working")
+  
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,minutely&appid=b189bd79d077113ba7f92cc757207908")
             .then(r => r.json())
             .then(data => {
-              console.log(data)
+              // console.log(data)
+              this.props.setWeather(data)
             })
   
   }
@@ -47,6 +48,8 @@ export default class sideMenu extends Component {
 
   render() {
     const { activeItem } = this.state
+
+
    
     return (
       <Menu pointing secondary vertical inverted color="violet">
