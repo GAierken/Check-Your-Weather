@@ -22,6 +22,13 @@ export default class sideMenu extends Component {
     Geocode.fromAddress(name)
         .then(r => {
             const {lat, lng} = r.results[0].geometry.location
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${api}`)
+            .then(r => r.json())
+            .then(data => {
+              // console.log(data)
+              this.props.setWeather(data)
+            })
+
              this.setState({
                lat: lat,
                lng: lng
@@ -31,19 +38,10 @@ export default class sideMenu extends Component {
     console.error(error)
   })
 
-    this.fetchWeather()
+   
   }
 
-   fetchWeather = () => {
-  
-        fetch("https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&exclude=hourly,minutely&appid=b189bd79d077113ba7f92cc757207908")
-            .then(r => r.json())
-            .then(data => {
-              // console.log(data)
-              this.props.setWeather(data)
-            })
-  
-  }
+
   
 
   render() {
@@ -52,7 +50,7 @@ export default class sideMenu extends Component {
 
    
     return (
-      <Menu pointing secondary vertical inverted color="violet">
+      <Menu pointing secondary vertical inverted color="violet" style={{'margin-top': '100px'}}>
         <Menu.Item
           name='New York'
           active={activeItem === 'New York'}

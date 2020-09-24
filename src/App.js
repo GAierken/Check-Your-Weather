@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SideMenu from './Components/Menu'
 import WeatherList from './Components/DailyWeatherList'
-import {Header} from 'semantic-ui-react'
+import {Header, Container} from 'semantic-ui-react'
 
 import './App.css';
 
@@ -22,7 +22,10 @@ function App() {
     <React.Fragment>
       <Header textAlign='center' as='h1' size="huge" color='violet' style={headerStyle}>Check Your Weather</Header>
         <SideMenu setWeather={setWeather}/>
-        <WeatherList weather={weatherObj}/>
+        <Container textAlign='right'>
+            <WeatherList weather={weatherObj}/>
+        </Container>
+        
     </React.Fragment>
       
    
