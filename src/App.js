@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import SideMenu from './Components/Menu'
 import WeatherList from './Components/DailyWeatherList'
 import {Header, Container} from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
-import './App.css';
 
 function App() {
   const headerStyle ={
@@ -32,4 +32,11 @@ function App() {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  
+  return {
+    weather: state.weather
+  }
+}
+
+export default connect(mapStateToProps)(App);
