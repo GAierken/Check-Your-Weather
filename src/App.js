@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SideMenu from './Components/Menu'
 import WeatherList from './Components/DailyWeatherList'
 import {Header, Container} from 'semantic-ui-react'
-import { connect } from 'react-redux'
+
 
 
 function App() {
@@ -10,20 +10,14 @@ function App() {
      padding: '20px'
   }
   
-  const [weatherObj, setWeatherObj] = useState({})
-
-
-  const setWeather = (weather) => {
-        // console.log(weather)
-        setWeatherObj(weather)
-  }
+ 
 
   return (
     <React.Fragment>
       <Header textAlign='center' as='h1' size="huge" color='violet' style={headerStyle}>Check Your Weather</Header>
-        <SideMenu setWeather={setWeather}/>
+        <SideMenu />
         <Container textAlign='right'>
-            <WeatherList weather={weatherObj}/>
+            <WeatherList />
         </Container>
         
     </React.Fragment>
@@ -32,11 +26,6 @@ function App() {
   );
 }
 
-const mapStateToProps = (state) => {
-  
-  return {
-    weather: state.weather
-  }
-}
 
-export default connect(mapStateToProps)(App);
+
+export default App;
