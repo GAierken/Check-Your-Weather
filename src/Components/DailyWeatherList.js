@@ -5,34 +5,32 @@ import { connect } from 'react-redux'
 
 const WeatherList = (props) => {
   
-  console.log('list', props)
+  console.log('list', props.weathers.daily)
 
-  return(
-     null
-  )
+ 
   
-// if(props.weathers.length !== 0){
+if(props.weathers.length !== 0){
      
-//     return props.weathers.daily.map((ele) => {
+    return props.weathers.daily.map((ele) => {
       
-//        return( 
-//        <List divided key={ele.dt}>
-//         <List.Item>
-//            <List.Content>
-//              <List.Header as='a'>{ele.weather[0].main}</List.Header>
-//            </List.Content>
-//        </List.Item>
-//       </List>
-//       ) 
+       return( 
+       <List divided key={ele.dt}>
+        <List.Item>
+           <List.Content>
+             <List.Header as='a'>{ele.weather[0].main}</List.Header>
+           </List.Content>
+       </List.Item>
+      </List>
+      ) 
            
        
-//     })
+    })
     
   
-// }else{
+}else{
 
-//   return null
-// }
+  return null
+}
 }
 
 const mapStateToProps = (state) => {
