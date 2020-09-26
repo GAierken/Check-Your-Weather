@@ -82,7 +82,7 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+
   return {
     
   }
