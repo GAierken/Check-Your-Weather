@@ -24,9 +24,12 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
     Geocode.fromAddress(name)
         .then(r => {
             const {lat, lng} = r.results[0].geometry.location
+             console.log(this.props)
+            // const { userId, dispatch } = this.props
+            // dispatch({type: 'USER_FETCH_REQUESTED', payload: {userId}})
 
             // console.log(lat, lng)
-            this.props.fetchWeather(lat, lng)
+            // this.props.fetchWeather(lat, lng)
             // fetch(`${apiUrl}lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${api}`)
             // .then(r => r.json())
             // .then(data => {
