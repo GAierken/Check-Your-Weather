@@ -4,11 +4,12 @@ const initialState = {
 }
 
 const weatherReducer = (state = initialState, action) => {
+       console.log('reducerjs', action)
         switch(action.type){
-           case 'SET_WEATHERS':
+           case "RECEIVE_API_DATA":
                return{
                    ...state,
-                   weathers: action.weathers
+                   weathers: action.data
                }
             default:
                 return state
