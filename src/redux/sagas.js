@@ -1,34 +1,27 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
-import { fetchWeather } from './actions';
+import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
 
+import { REQUEST_API_DATA, receiveApiData } from "./actions";
+import { fetchData } from "./api";
 
-// worker Saga : 将在 USER_FETCH_REQUESTED action 被 dispatch 时调用
-function* fetchWeather(action) {
-    console.log(action)
-  //  try {
-  //     const user = yield call(Api.fetchUser, action.payload.userId);
-  //     yield put({type: "USER_FETCH_SUCCEEDED", user: user});
-  //  } catch (e) {
-  //     yield put({type: "USER_FETCH_FAILED", message: e.message});
-  //  }
+// worker Saga: will be fired on USER_FETCH_REQUESTED actions
+function* getApiData(action) {
+  // console.log('working sagajs line 8', action)
+  try {
+    // do api call
+    const data = yield call(fetchData,action.data);
+
+    yield put(receiveApiData(data));
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 /*
-  在每个 `USER_FETCH_REQUESTED` action 被 dispatch 时调用 fetchUser
-  允许并发（译注：即同时处理多个相同的 action）
+  Alternatively you may use takeLatest.
+  Does not allow concurrent fetches of user. If "USER_FETCH_REQUESTED" gets
+  dispatched while a fetch is already pending, that pending fetch is cancelled
+  and only the latest one will be run.
 */
 export default function* mySaga() {
-  yield takeEvery("WEATHER_FETCH_REQUESTED", fetchWeather);
+  yield takeEvery(REQUEST_API_DATA, getApiData);
 }
-
-/*
-  也可以使用 takeLatest
-
-  不允许并发，dispatch 一个 `USER_FETCH_REQUESTED` action 时，
-  如果在这之前已经有一个 `USER_FETCH_REQUESTED` action 在处理中，
-  那么处理中的 action 会被取消，只会执行当前的
-*/
-// function* mySaga() {
-//   yield takeLatest("USER_FETCH_REQUESTED", fetchUser);
-// }
-
