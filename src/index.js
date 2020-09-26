@@ -6,16 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
 //redux
 import { Provider } from 'react-redux'
-
-
+import store from "./store";
 //router
 import { BrowserRouter as Router} from 'react-router-dom'
-
-import store from "./store";
-
-
-
-
 
 ReactDOM.render(
   

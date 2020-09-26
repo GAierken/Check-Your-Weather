@@ -1,10 +1,9 @@
 const initialState = {
-    weathers: [],
-    singleWeather: {}
+    weathers: []
 }
 
 const weatherReducer = (state = initialState, action) => {
-       console.log('reducerjs', action)
+       
         switch(action.type){
            case "RECEIVE_API_DATA":
                return{
