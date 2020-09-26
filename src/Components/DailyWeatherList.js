@@ -2,6 +2,7 @@ import React from 'react'
 import { List } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
+
 const WeatherList = (props) => {
   
 
@@ -9,9 +10,9 @@ const WeatherList = (props) => {
 if(props.weathers.length !== 0){
      
     return props.weathers.daily.map((ele) => {
-         console.log(ele)
+        console.log(ele)
        return( 
-       <List divided >
+       <List divided key={ele.dt}>
         <List.Item>
            <List.Content>
              <List.Header as='a'>{ele.weather[0].main}</List.Header>
@@ -25,7 +26,7 @@ if(props.weathers.length !== 0){
     
   
 }else{
-  console.log('working')
+
   return null
 }
 }

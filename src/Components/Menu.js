@@ -4,8 +4,8 @@ import Geocode from "react-geocode"
 import { connect } from 'react-redux'
 import { fetchWeather } from '../redux/actions'
 
-const apiUrl = "http://api.openweathermap.org/data/2.5/onecall?"
-const api = process.env.REACT_APP_WEATHER_API_KEY
+// const apiUrl = "http://api.openweathermap.org/data/2.5/onecall?"
+// const api = process.env.REACT_APP_WEATHER_API_KEY
 
 Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
@@ -55,7 +55,7 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
    
     return (
-      <Menu pointing secondary vertical inverted color="violet" style={{'margin-top': '100px'}}>
+      <Menu pointing secondary vertical inverted color="violet" style={{'marginTop': '100px'}}>
         <Menu.Item
           name='New York'
           active={activeItem === 'New York'}

@@ -11,7 +11,7 @@ export const setWeathers = (weathers) => {
 }
 
 export const fetchWeather = (lat, lng) => {
-    console.log(lat, lng)
+
     return (dispatch) => {
 
         fetch(`${apiUrl}lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${api}`)
