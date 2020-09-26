@@ -8,27 +8,37 @@ import 'semantic-ui-css/semantic.min.css'
 import { Provider } from 'react-redux'
 import weatherReducer from './redux/reducer'
 import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk'
+//thunk
+// import thunk from 'redux-thunk'
+
 //redux saga
-// import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from 'redux-saga'
 
 
-// import {helloSaga} from './redux/saga'
+import {helloSaga} from './redux/saga'
 //router
 import { BrowserRouter as Router} from 'react-router-dom'
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
-// const sagaMiddleware = createSagaMiddleware();
-// console.log(sagaMiddleware)
-const store = createStore(
-  weatherReducer, 
-  composeEnhancers(applyMiddleware(thunk))
-  )
 
 
-// sagaMiddleware.run(helloSaga)
+
+const sagaMiddleware = createSagaMiddleware();
+//thunk
+// const store = createStore(
+//   weatherReducer, 
+//   composeEnhancers(applyMiddleware(thunk))
+//   )
+
+//redux saga
+  const store = createStore(
+    weatherReducer, 
+    applyMiddleware(sagaMiddleware)
+    )
+
+sagaMiddleware.run(helloSaga)
 
 ReactDOM.render(
   

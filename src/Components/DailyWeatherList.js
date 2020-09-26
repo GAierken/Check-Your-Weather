@@ -10,7 +10,7 @@ const WeatherList = (props) => {
 if(props.weathers.length !== 0){
      
     return props.weathers.daily.map((ele) => {
-        console.log(ele)
+      
        return( 
        <List divided key={ele.dt}>
         <List.Item>
