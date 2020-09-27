@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SideMenu from './Components/Menu'
 import WeatherList from './Components/DailyWeatherList'
 import {Header, Container} from 'semantic-ui-react'
@@ -10,9 +10,10 @@ function App(props) {
   const headerStyle ={
      padding: '20px'
   }
-  
 
-
+  useEffect(() => {
+    document.title = props.activeItem
+ }, []);
 
   return (
     <React.Fragment>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import { Menu, Input, Button } from 'semantic-ui-react'
 import Geocode from "react-geocode"
 import { connect } from 'react-redux'
@@ -13,7 +13,9 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
           searchValue: ""
         }
 
- 
+     componentDidUpdate(){
+        document.title = this.props.activeItem
+     }
 
   handleItemClick = (e, { name }) => {
 

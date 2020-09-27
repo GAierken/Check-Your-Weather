@@ -1,12 +1,11 @@
 import React from 'react'
-import { Modal, ModalDescription } from 'semantic-ui-react'
+import { Modal } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import {requestModalData} from '../redux/actions'
 import moment from 'moment'
 
 function DayModal(props) {
    
-    //sunset time, sunrise time, description, and wind speed
 
     if(props.day){
         return(
