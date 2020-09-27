@@ -5,10 +5,6 @@ import moment from 'moment'
 
 
 const WeatherList = (props) => {
-  
-//day, date, temperature, & weather icon
-   
-
 
 if(props.weathers.length !== 0){
      
