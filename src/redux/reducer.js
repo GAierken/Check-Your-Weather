@@ -1,7 +1,6 @@
 const initialState = {
     weathers: [],
     activeItem: 'New York'
-    // activeItem: 'New York'
 }
 
 const weatherReducer = (state = initialState, action) => {
