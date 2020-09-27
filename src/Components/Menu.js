@@ -36,10 +36,14 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
   }
 
  handleOnChange = (e) => {
- 
-    this.setState({
-      searchValue: e.target.value.toLowerCase()
-    })
+       
+       let value = e.target.value.toLowerCase()
+       if(value.length >= 2){
+        this.setState({
+          searchValue: value[0].toUpperCase() + value.substring(1)
+        })
+       }
+    
  }
 
  handleClick = () => {
