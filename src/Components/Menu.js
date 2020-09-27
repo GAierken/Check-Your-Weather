@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Menu } from 'semantic-ui-react'
 import Geocode from "react-geocode"
 import { connect } from 'react-redux'
-import { bindActionCreators } from "redux";
-import { requestApiData } from "../redux/actions"
+import { requestApiData, requestActiveItemData } from "../redux/actions"
 
 
 Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
@@ -12,12 +11,13 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
   
 
 
-  state = { 
-    activeItem: 'New York'
-  }
+ 
 
   handleItemClick = (e, { name }) => {
-    this.setState({ activeItem: name })
+
+    
+      this.props.requestActiveItemData({name})
+
     Geocode.fromAddress(name)
         .then(r => {
             const {lat, lng} = r.results[0].geometry.location
@@ -33,8 +33,9 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
   }
 
   render() {
-    const { activeItem } = this.state
-   
+    const { activeItem } = this.props
+
+ 
     return (
       <Menu pointing secondary vertical inverted color="violet" style={{'marginTop': '100px'}}>
         <Menu.Item
@@ -64,9 +65,12 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
 
 
-const mapStateToProps = state => ({ data: state.data });
+const mapStateToProps = (state) => {
 
-const mapDispatchToProps = dispatch =>
-  bindActionCreators({ requestApiData }, dispatch);
+  return(
+    { ...state }
+    )
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
+
+export default connect(mapStateToProps,{ requestApiData, requestActiveItemData })(SideMenu);

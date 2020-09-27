@@ -5,9 +5,7 @@ import { connect } from 'react-redux'
 
 const WeatherList = (props) => {
   
-  console.log('list', props.weathers.daily)
 
- 
   
 if(props.weathers.length !== 0){
      
