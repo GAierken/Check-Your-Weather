@@ -57,6 +57,10 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
   error => {
     console.error(error)
   })
+
+  this.setState({
+    searchValue: ""
+  })
     
  }
 
