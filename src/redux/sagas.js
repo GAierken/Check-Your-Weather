@@ -1,4 +1,4 @@
-import { all, call, put, fork, takeEvery, takeLatest } from "redux-saga/effects";
+import {  call, put, fork, takeEvery } from "redux-saga/effects";
 
 import { REQUEST_API_DATA, receiveApiData, REQUEST_ACTIVEITEM_DATA, receiveActiveItemData } from "./actions";
 import { fetchData } from "./api";

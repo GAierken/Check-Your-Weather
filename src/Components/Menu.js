@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import { Menu, Search } from 'semantic-ui-react'
 import Geocode from "react-geocode"
 import { connect } from 'react-redux'
 import { requestApiData, requestActiveItemData } from "../redux/actions"
@@ -53,11 +53,10 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
           active={activeItem === 'Miami'}
           onClick={this.handleItemClick}
         />
-         <Menu.Item
-          name='Other'
-          active={activeItem === 'Other'}
-          onClick={this.handleItemClick}
-        />
+         <Menu.Item>
+            <Search size='mini'/>
+         </Menu.Item>
+
       </Menu>
     )
   }
