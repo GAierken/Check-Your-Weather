@@ -36,7 +36,7 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
   }
 
  handleOnChange = (e) => {
-    console.log(e.target.value)
+ 
     this.setState({
       searchValue: e.target.value.toLowerCase()
     })
@@ -65,7 +65,7 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
  
     return (
-      <Menu pointing secondary vertical inverted color="violet" style={{'marginTop': '100px'}}>
+      <Menu  size="huge" pointing secondary vertical inverted color="violet" style={{'marginTop': '100px'}}>
         <Menu.Item
           name='New York'
           active={activeItem === 'New York'}
@@ -82,9 +82,9 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
           onClick={this.handleItemClick}
         />
          <Menu.Item>
-         <Input type='text' placeholder='Search...' action>
-          <Input size="mini" onChange={this.handleOnChange}/>
-          <Button type='submit' size="mini" onClick={this.handleClick}>Search</Button>
+         <Input type='text'  action>
+          <Input size="mini" onChange={this.handleOnChange} placeholder='Search...'/>
+          <Button color="violet" inverted type='submit' size="mini" onClick={this.handleClick}>Search</Button>
         </Input>
          </Menu.Item>
 
