@@ -1,6 +1,6 @@
 import {  call, put, fork, takeEvery } from "redux-saga/effects";
 
-import { REQUEST_API_DATA, receiveApiData, REQUEST_ACTIVEITEM_DATA, receiveActiveItemData } from "./actions";
+import { REQUEST_API_DATA, receiveApiData, REQUEST_ACTIVEITEM_DATA, receiveActiveItemData, REQUEST_MODAL_DATA,receiveModalData } from "./actions";
 import { fetchData } from "./api";
 
 
@@ -22,6 +22,11 @@ function* setActiveItem(action){
    yield put(receiveActiveItemData(action.data))
 }
 
+
+function* setModalStatus(action){
+  yield put(receiveModalData(action.data))
+}
+
  function* fetchSaga() {
   
   yield takeEvery(REQUEST_API_DATA, getApiData);
@@ -32,9 +37,17 @@ function* activeItemSaga(){
   yield takeEvery(REQUEST_ACTIVEITEM_DATA, setActiveItem)
 }
 
+
+function* modalSaga(){
+    
+  yield takeEvery(REQUEST_MODAL_DATA, setModalStatus)
+}
+
+
 export default function* rootSaga(){
     yield fork(fetchSaga)
     yield fork(activeItemSaga)
+    yield fork(modalSaga)
     
     
 }
