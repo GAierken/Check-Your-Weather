@@ -13,14 +13,16 @@ const WeatherList = (props) => {
 if(props.weathers.length !== 0){
      
     return props.weathers.daily.map((ele) => {
-      var iconcode = ele.weather[0].icon;
-      var iconurl = "http://openweathermap.org/img/w/" + iconcode + ".png";
+      let iconCode = ele.weather[0].icon;
+      let iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+      let temp = Math.trunc((ele.temp.day - 273.15) * 9/5 + 32)
        return( 
        <List divided key={ele.dt}>
         <List.Item>
            <List.Content>
-                <List.Header as='a'> Date: {moment.unix(ele.dt).format("MM/DD/YYYY")}</List.Header>
-                <img id="wicon" src={iconurl} alt="Weather icon"></img>
+                <List.Header as='a'> Date: {moment.unix(ele.dt).format("MM/DD/YYYY")} Temp: {temp} °F</List.Header>
+                <img id="wicon" src={iconUrl} alt="Weather icon"></img>
+
            </List.Content>
        </List.Item>
       </List>
