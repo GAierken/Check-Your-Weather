@@ -1,10 +1,12 @@
 const initialState = {
     weathers: [],
-    activeItem: 'New York'
+    activeItem: 'New York',
+    modalStatus: false,
+    clickedDay: {}
 }
 
 const weatherReducer = (state = initialState, action) => {
-       console.log()
+    
         switch(action.type){
            case "RECEIVE_API_DATA":
                return{
@@ -15,6 +17,12 @@ const weatherReducer = (state = initialState, action) => {
                return{
                    ...state,
                    activeItem: action.data.name
+               }
+           case "RECEIVE_MODAL_DATA":
+               return {
+                   ...state,
+                   modalStatus: action.data.status,
+                   clickedDay: action.data.day
                }
             default:
                 return state
