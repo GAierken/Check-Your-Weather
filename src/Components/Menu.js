@@ -93,7 +93,7 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
         />
          <Menu.Item>
          <Input type='text'  action>
-          <Input size="mini" onChange={this.handleOnChange} placeholder='Search...'/>
+          <Input size="mini" onChange={this.handleOnChange} placeholder='Search...' />
           <Button color="violet" inverted type='submit' size="mini" onClick={this.handleClick}>Search</Button>
         </Input>
          </Menu.Item>
