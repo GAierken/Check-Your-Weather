@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react'
+import React, { Component } from 'react'
 import { Menu, Input, Button } from 'semantic-ui-react'
 import Geocode from "react-geocode"
 import { connect } from 'react-redux'
