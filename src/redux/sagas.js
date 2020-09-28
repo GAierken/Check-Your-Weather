@@ -1,4 +1,4 @@
-import {  call, put, fork, takeEvery } from "redux-saga/effects";
+import {  call, put, fork, takeEvery, takeLatest } from "redux-saga/effects";
 
 import { REQUEST_API_DATA, receiveApiData, REQUEST_ACTIVEITEM_DATA, receiveActiveItemData, REQUEST_MODAL_DATA,receiveModalData } from "./actions";
 import { fetchData } from "./api";
@@ -29,7 +29,7 @@ function* setModalStatus(action){
 
  function* fetchSaga() {
   
-  yield takeEvery(REQUEST_API_DATA, getApiData);
+  yield takeLatest(REQUEST_API_DATA, getApiData);
 }
 
 function* activeItemSaga(){
