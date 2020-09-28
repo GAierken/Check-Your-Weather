@@ -4,6 +4,8 @@ import WeatherList from './Components/DailyWeatherList'
 import {Header, Container} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { requestApiData } from "./redux/actions"
+import Geocode from "react-geocode"
+Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
 
 function App(props) {
@@ -13,6 +15,16 @@ function App(props) {
 
   useEffect(() => {
     document.title = props.activeItem
+    Geocode.fromAddress(props.activeItem)
+    .then(r => {
+        const {lat, lng} = r.results[0].geometry.location
+       
+         props.requestApiData({lat, lng});
+        
+},
+error => {
+console.error(error)
+})
  }, []);
 
   return (
