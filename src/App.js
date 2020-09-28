@@ -25,7 +25,7 @@ function App(props) {
 error => {
 console.error(error)
 })
- }, []);
+ });
 
   return (
     <React.Fragment>
