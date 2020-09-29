@@ -14,6 +14,7 @@ const handleClick = (ele) => {
    props.requestModalData(data)
 }
 
+console.log(props)
 if(props.weathers.length !== 0){
      
     return props.weathers.daily.map((ele) => {

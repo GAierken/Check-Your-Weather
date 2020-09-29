@@ -34,13 +34,13 @@ function* setModalStatus(action){
 
 function* activeItemSaga(){
     
-  yield takeEvery(REQUEST_ACTIVEITEM_DATA, setActiveItem)
+  yield takeLatest(REQUEST_ACTIVEITEM_DATA, setActiveItem)
 }
 
 
 function* modalSaga(){
     
-  yield takeEvery(REQUEST_MODAL_DATA, setModalStatus)
+  yield takeLatest(REQUEST_MODAL_DATA, setModalStatus)
 }
 
 
