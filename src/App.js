@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import SideMenu from './Components/Menu'
 import WeatherList from './Components/DailyWeatherList'
-import {Header, Container} from 'semantic-ui-react'
+import {Header, Container, Grid} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { requestApiData, requestActiveItemData } from "./redux/actions"
 import Geocode from "react-geocode"
@@ -46,10 +46,13 @@ console.error(error)
   return (
     <React.Fragment>
       <Header textAlign='center' as='h1' size="huge" color='violet' style={headerStyle}>{props.activeItem}</Header>
-        <SideMenu />
-        <Container textAlign='right'>
-            <WeatherList />
-        </Container>
+      <Grid columns='2'>
+          <SideMenu />
+            <Container style={{"margin-top": "50px"}}textAlign='center'>
+                <WeatherList />
+            </Container>
+      </Grid>
+        
         {/* <Switch>
           <Route path='/:slug' render={renderWeather}/>
         </Switch> */}
