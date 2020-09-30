@@ -5,7 +5,7 @@ import {Header, Container, Grid} from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { requestApiData, requestActiveItemData } from "./redux/actions"
 import Geocode from "react-geocode"
-import { Switch, Route } from 'react-router-dom';
+// import { Switch, Route } from 'react-router-dom';
 Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
 
