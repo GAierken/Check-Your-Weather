@@ -10,3 +10,5 @@ JavaScript, React, Redux, Redux-Saga, React-Geocode, .dotenv, moment.js, Semanti
 ### Prerequisite
 
 npm install && npm start
+
+
