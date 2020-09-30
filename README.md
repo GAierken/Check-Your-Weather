@@ -1,6 +1,14 @@
-## Check Your Weather ## [Live](https://stoic-meitner-ecf895.netlify.app/)
+## Check Your Weather ##
+[Live](https://stoic-meitner-ecf895.netlify.app/)
 
-Weather API: [One Call API](https://openweathermap.org/api/one-call-api)
+### Weather API: [One Call API](https://openweathermap.org/api/one-call-api)
+### Geocode API: [Google Geocoding API](https://developers.google.com/maps/documentation/geocoding/start) 
 
+### Tools
+JavaScript, React, Redux, Redux-Saga, React-Geocode, .dotenv, moment.js, Semantic-ui React
+
+### Prerequisite
 
 npm install && npm start
+
+
