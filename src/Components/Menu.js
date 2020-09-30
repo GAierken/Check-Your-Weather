@@ -8,62 +8,74 @@ import { requestApiData, requestActiveItemData } from "../redux/actions"
 Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
  class SideMenu extends Component {
-  
+        
+       //input form handling  -- GA
         state ={
           searchValue: ""
         }
-
+   
+    // when city selected change web page title to it -- GA
      componentDidUpdate(){
         document.title = this.props.activeItem
      }
-
+// when city is clicked
   handleItemClick = (e, { name }) => {
 
-    
+    //change webpage title to selected city
       this.props.requestActiveItemData({name})
-
+   // transform city to lat lng
     Geocode.fromAddress(name)
         .then(r => {
             const {lat, lng} = r.results[0].geometry.location
-           
+            // call weather api -- GA
              this.props.requestApiData({lat, lng});
             
   },
   error => {
+    // error handling  -- GA
     console.error(error)
   })
 
    
 
   }
-
+ // handle search input change -- GA
  handleOnChange = (e) => {
        
        let value = e.target.value.toLowerCase()
        if(value.length >= 2){
         this.setState({
+          // to make sure the web header can start with upper case and lower case rest name -- GA
           searchValue: value[0].toUpperCase() + value.substring(1)
         })
        }
     
  }
 
+ // search input finished and handle search button click -- GA
  handleClick = () => {
+   //form control -- GA
    let name = this.state.searchValue
-    
-   this.props.requestActiveItemData({name})
 
+
+   // change web page title 
+   this.props.requestActiveItemData({name})
+ 
+
+   // transform name to lat lng
    Geocode.fromAddress(name)
         .then(r => {
             const {lat, lng} = r.results[0].geometry.location
-           
+           // call weather Api
              this.props.requestApiData({lat, lng});
             
   },
   error => {
+    // error handling
     console.error(error)
   })
 
+  //after search click, state is back to empty -- GA
   this.setState({
     searchValue: ""
   })

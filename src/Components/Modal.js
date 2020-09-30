@@ -1,12 +1,17 @@
 import React from 'react'
+// semantic ui styling -- GA
 import { Modal } from 'semantic-ui-react'
+// redux related -- GA
 import { connect } from 'react-redux'
+
+// modal trigger -- GA
 import {requestModalData} from '../redux/actions'
+// moment js to transform epoch time to human readable date
 import moment from 'moment'
 
 function DayModal(props) {
    
-
+   // make sure pass down true value
     if(props.day){
         return(
             <Modal

@@ -1,3 +1,4 @@
+// store config -- GA
 import { createStore, applyMiddleware } from 'redux';
 import weatherReducer from './redux/reducer'
 import createSagaMiddleware from 'redux-saga'

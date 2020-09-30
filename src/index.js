@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// semantic ui for styling -- GA
 import 'semantic-ui-css/semantic.min.css'
-//redux
+//redux prep -- GA
 import { Provider } from 'react-redux'
 import store from "./store";
-//router
+//router -- GA (trying to use react router to make url work)
 import { BrowserRouter as Router} from 'react-router-dom'
 
 ReactDOM.render(
