@@ -2,9 +2,10 @@
 const apiUrl = "http://api.openweathermap.org/data/2.5/onecall?"
 // get key -- GA
 const api = process.env.REACT_APP_WEATHER_API_KEY
-
+console.log(api)
 export const fetchData = async (address) => {
     const {lat, lng} = address
+    console.log(address)
     try {
       const response = await fetch(`${apiUrl}lat=${lat}&lon=${lng}&exclude=hourly,minutely&appid=${api}`);
       const data = await response.json();
