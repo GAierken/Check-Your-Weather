@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { Component } from 'react';
 // side navigation -- GA
 import SideMenu from './Components/Menu'
 // 7 days forecast list -- GA
@@ -17,34 +17,29 @@ import Geocode from "react-geocode"
 
 // get key --GA
 Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
+const headerStyle ={
+  padding: '20px'
+}
 
 
-function App(props) {
+class App extends Component{
   //customized style for header --  GA
-  const headerStyle ={
-     padding: '20px'
-  }
-
+ 
 
   // default new york when loading -- GA
 
-  useEffect(() => {
-    //web page title will be selected city --GA
-    document.title = props.activeItem
+//   componentDidMount(){
+//     //web page title will be selected city --GA
+//     document.title = this.props.activeItem
 
-    // geocode selected city to lat , lng -- GA
-    Geocode.fromAddress(props.activeItem)
-    .then(r => {
-        const {lat, lng} = r.results[0].geometry.location
-       //call One call api -- GA
-         props.requestApiData({lat, lng});
+//     // geocode selected city to lat , lng -- GA
+//     Geocode.fromAddress(this.props.activeItem)
+//     .then(r => {
+//         const {lat, lng} = r.results[0].geometry.location
+//        //call One call api -- GA
+//          this.props.requestApiData({lat, lng});
         
-},
-error => {
-  //error handling -- GA
-console.error(error)
-})
- }, []);
+
 
 
   //// react router doesn't work as intended -- GA
@@ -62,10 +57,10 @@ console.error(error)
 //   console.error(error)
 //   })
 //  }
-
+render(){
   return (
     <React.Fragment>
-      <Header textAlign='center' as='h1' size="huge" color='violet' style={headerStyle}>{props.activeItem}</Header>
+      <Header textAlign='center' as='h1' size="huge" color='violet' style={headerStyle}>{this.props.activeItem}</Header>
       <Grid columns='2'>
           <SideMenu />
             <Container style={{"margin-top": "50px"}}textAlign='center'>
@@ -77,9 +72,12 @@ console.error(error)
           <Route path='/:slug' render={renderWeather}/>
         </Switch> */}
     </React.Fragment>
+  )
       
    
-  );
+      }
+
+  
 }
 
 
