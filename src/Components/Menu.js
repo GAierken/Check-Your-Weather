@@ -87,7 +87,7 @@ Geocode.setApiKey(process.env.REACT_APP_MAP_API_KEY)
 
   
     return (
-      <Menu  size="huge" pointing secondary vertical inverted color="violet" style={{'marginTop': '100px'}}>
+      <Menu  size="huge" pointing secondary vertical inverted color="violet" style={{marginTop: '100px'}}>
         <Menu.Item
           name='New York'
           active={activeItem === 'New York'}
