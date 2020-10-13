@@ -44,7 +44,7 @@ error => {
   //error handling -- GA
 console.error(error)
 })
- });
+ }, []);
 
 
   //// react router doesn't work as intended -- GA
